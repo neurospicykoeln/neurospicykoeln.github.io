@@ -28,6 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
     lightboxImg.src = img.src;
   };
 
+  document.getElementById("lightbox").addEventListener("click", function(e) {
+    if (e.target === this) {
+      closeLightbox();
+    }
+  });
+
   window.closeLightbox = function() {
     document.getElementById("lightbox").style.display = "none";
   };
