@@ -151,8 +151,12 @@
     <button class="gallery-btn right" onclick="scrollGallery(300)">❯</button>
   </div>
   
-  <div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img">
+  <div id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img">
+      <p class="lightbox-hint">ESC drücken zum Schließen</p>
+    </div>
   </div>
   
   <h2>Weitere Hinweise</h2>
