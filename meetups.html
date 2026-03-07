@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meetups</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <h1>Unsere offenen Community-Treffen</h1>
+  <p>
+    Wir laden alle Interessierten herzlich zu unseren offenen Community-Treffen ein. 
+    Egal ob du schon Teil unserer Community bist oder einfach neugierig – bei uns bist du willkommen!
+  </p>
+  <!--
+  <h2>So laufen unsere Treffen gewöhnlich ab</h2>
+  <p>
+    Unsere Treffen beginnen meist mit einer kurzen Begrüßung, danach gibt es eine offene
+    Gesprächsrunde oder ein kleines Programm, bei dem alle teilnehmen können. 
+    Zwischendurch gibt es Zeit für Austausch, Networking und gemeinsames Lernen.
+  </p>
+
+  <h2>Teilnahme-Regeln</h2>
+  <p>Wir bemühen uns um einen Safer space: kein Raum für Diskriminierung.</p>
+  <ul>
+    <li>Respektvoller Umgang miteinander ist Pflicht.</li>
+    <li>Stilles Applaudieren, um andere nicht zu stören.</li>
+    <li>Alle dürfen ihre Erfahrungen teilen, ohne bewertet zu werden.</li>
+    <li>Wir nutzen eine selbstmoderierende Redeliste, damit alle zu Wort kommen können.</li>
+    <li>Während der Gespräche könnt ihr gerne Notizen machen.</li>
+    <li>Sorgt gut für euch selbst (z. B. Stimming, Reizabschirmung, Pausen nach Bedarf).</li>
+  </ul>
+  <p>
+  Wenn jemand etwas noch nicht wusste oder eine Annahme falsch war, ist Neugierde und das Interesse, dazu zu lernen, ausdrücklich willkommen.
+  </p>
+  
+  <h2>Kommende Events</h2>
+  <div class="event-card">
+    <h3>Community-Treffen</h3>
+    <p><strong>Datum:</strong> Montag, 09. März 2026</p>
+    <p><strong>Uhrzeit:</strong> 18:00 – 20:30 Uhr</p>
+    <p><strong>Location:</strong> Beispielstraße 12, 12345 Musterstadt</p>
+    <a href="#">Mehr Infos / Anmeldung</a>
+  </div>
+
+  <div class="event-card">
+    <h3>Community-Treffen #2</h3>
+    <p><strong>Datum:</strong> 20. Mai 2026</p>
+    <p><strong>Uhrzeit:</strong> 18:00 – 20:30 Uhr</p>
+    <p><strong>Location:</strong> Beispielstraße 12, 12345 Musterstadt</p>
+    <a href="#">Mehr Infos / Anmeldung</a>
+  </div>
+
+  <h2>Über die Location</h2>
+  <p>
+    Unsere Treffen finden in freundlichen, barrierearmen Räumlichkeiten statt. 
+    Hier findest du Fotos und eine Wegbeschreibung, damit du gut hinkommst:
+  </p>
+  <div class="location-info">
+    <img src="assets/location1.jpg" alt="Foto der Räumlichkeiten">
+    <img src="assets/location2.jpg" alt="Weitere Ansicht der Räume">
+    <p>
+      Anfahrt mit öffentlichen Verkehrsmitteln: Bus Linie 12 bis Haltestelle Musterplatz, dann 5 Minuten zu Fuß.
+      Parkmöglichkeiten sind vor Ort begrenzt vorhanden.
+    </p>
+  </div>
+
+  <h2>Weitere Hinweise</h2>
+  <ul>
+    <li>Bring gerne eigene Getränke oder Snacks mit.</li>
+    <li>Teilnahme ist kostenlos, aber Anmeldung ist erwünscht.</li>
+    <li>Bei Fragen wende dich an <a href="mailto:kontakt@example.com">kontakt@example.com</a>.</li>
+  </ul>
+  -->
+
+  <!-- Uncomment this, when we want to limit number of participants
+  <div class="card">
+    <h2>09. Februar 2026</h2>
+    <p><strong>Anlass:</strong> Austausch</p>
+    
+    <p>Melde dich an:</p>
+    <p>ACHTUNG: Insert Hinweis, dass mail adressen intern an google forms geleitet werden und in einem Google sheet (nur für uns zugänglich) gespeichert werden.</p>
+    <form id="registrationForm">
+      <input type="email" name="entry.119062132" placeholder="Deine E-Mail" required>
+      <button type="submit">Ich komme!</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const action = "https://docs.google.com/forms/d/e/1FAIpQLSdnaZalc37nRXCf-CsmqclrBUsbgAi7gM4wsuwUKr1f9TuMnQ/formResponse";
+
+      const button = form.querySelector("button");
+      button.disabled = true;
+      button.textContent = "Bitte warten…";
+
+      fetch(action, {
+        method: 'POST',
+        body: data,
+        mode: 'no-cors'
+      }).then(() => {
+        window.location.href = 'successful_registration.html';
+      }).catch(() => {
+        window.location.href = 'successful_registration.html';
+      });
+    });
+  </script>
+
+  -->
+
+  <div id="footer"></div>
+
+  <script src="loader.js"></script>
+
+</body>
+</html>
