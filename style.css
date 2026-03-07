@@ -1,6 +1,4 @@
-/* ===========================
-   Farbvariablen (einheitliches Farbschema)
-=========================== */
+/* colors */
 :root {
     --bg-main: #f7f3ea;
     --bg-soft: #f2eee4;
@@ -10,9 +8,7 @@
     --text-muted: #666;
 }
 
-/* ===========================
-   Body / Layout
-=========================== */
+/* Body */
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.6;
@@ -21,7 +17,7 @@ body {
     color: var(--text-main);
 }
 
-/* Content Breite + Padding */
+/* Content width + Padding */
 body > *:not(.site-header) {
     max-width: 900px;
     margin-left: auto;
@@ -30,9 +26,7 @@ body > *:not(.site-header) {
     padding-right: 1.2rem;
 }
 
-/* ===========================
-   Header (Sticky + Zentriert)
-=========================== */
+/* Sticky Header */
 .site-header {
     background-color: #faf7f0;
     border-bottom: 1px solid var(--border-soft);
@@ -60,9 +54,7 @@ body > *:not(.site-header) {
     color: var(--text-muted);
 }
 
-/* ===========================
-   Navigation
-=========================== */
+/* Navigation */
 .nav-list {
     list-style: none;
     padding: 0;
@@ -84,9 +76,7 @@ body > *:not(.site-header) {
     text-decoration: underline;
 }
 
-/* ===========================
-   Headings
-=========================== */
+/* Headings */
 h1 {
     margin-top: 2rem;
     margin-bottom: 0.8rem;
@@ -101,23 +91,17 @@ h3 {
     margin-top: 0.8rem;
 }
 
-/* ===========================
-   Paragraphs
-=========================== */
+/* Paragraphs */
 p {
     margin-bottom: 1rem;
 }
 
-/* ===========================
-   Lists
-=========================== */
+/* Lists */
 ul {
     padding-left: 1.5rem;
 }
 
-/* ===========================
-   Cards
-=========================== */
+/* Cards */
 .card {
     background-color: var(--bg-soft);
     border: 1px solid var(--border-soft);
@@ -155,9 +139,7 @@ ul {
     background-color: #ddd6c8;
 }
 
-/* ===========================
-   Tabellen
-=========================== */
+/* Tables */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -174,9 +156,7 @@ th {
     background-color: #ece6d7;
 }
 
-/* ===========================
-   Links
-=========================== */
+/* Links */
 a {
     color: #444;
 }
@@ -185,13 +165,110 @@ a:hover {
     color: #222;
 }
 
-/* ===========================
-   Footer
-=========================== */
+/* Footer */
 #footer {
     text-align: center;
     font-size: 0.85rem;
     color: var(--text-muted);
     padding: 2rem 1rem;
     margin-top: 2rem;
+}
+
+/* gallery wrapper */
+.gallery-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* scroll gallery */
+.photo-gallery {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem;
+  scroll-behavior: smooth;
+
+  background: #f3efe8;
+  border-radius: 10px;
+  border: 1px solid #e6e0d6;
+}
+
+/* scrollbar verstecken */
+.photo-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.photo-gallery {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* photo cards */
+.photo-card {
+  min-width: 220px;
+  flex: 0 0 auto;
+  background: #faf7f2;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e6e0d6;
+  transition: transform 0.2s;
+}
+
+.photo-card:hover {
+  transform: translateY(-3px);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.photo-card figcaption {
+  font-size: 0.9rem;
+  padding: 0.6rem;
+  text-align: center;
+  color: #555;
+}
+
+/* scroll buttons */
+.gallery-btn {
+  position: absolute;
+  background: #faf7f2;
+  border: 1px solid #e6e0d6;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 2;
+}
+
+.gallery-btn.left {
+  left: -10px;
+}
+
+.gallery-btn.right {
+  right: -10px;
+}
+
+/* lightbox */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 6px;
 }
