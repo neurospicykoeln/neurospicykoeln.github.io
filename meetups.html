@@ -115,41 +115,47 @@
   </p>
 
   <h3>Wegbeschriebung</h3>
-  
   <div class="map">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d912.098555999851!2d6.9100958923196165!3d50.94940108790164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf25007ba6e981%3A0xcb37f4b9989be5a9!2sTherapiezentrum%20Lichthof%20%7C%20Autismustherapie!5e0!3m2!1sde!2sde!4v1772901013318!5m2!1sde!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
-  
   <p>
     Anfahrt mit öffentlichen Verkehrsmitteln: <em>Muss noch eingefügt werden</em>
     Parkmöglichkeiten sind vor Ort begrenzt vorhanden, es handelt sich um öffentliche Parkplätze entlang der Straße.
   </p>
 
-  <div class="photo-gallery">
-    <figure class="photo-card">
-      <img src="assets/photo1.jpg" alt="Die Räumlickeiten von außen">
-      <figcaption>Die Räumlickeiten von außen.</figcaption>
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/photo2.jpg" alt="Küche im Erdgeschoss mit Übergang zum Essraum.">
-      <figcaption>Küche im Erdgeschoss mit Übergang zum Essraum.</figcaption>
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/photo3.jpg" alt="Essraum im Erdgeschoss">
-      <figcaption>Essraum im Erdgeschoss</figcaption>
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/photo4.jpg" alt="Raum für die Disskussionen in Kleingruppen (1. OG).">
-      <figcaption>Raum für die Disskussionen in Kleingruppen (1. OG).</figcaption>
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/photo4.jpg" alt="Raum für die Disskussionen in Kleingruppen (1. OG).">
-      <figcaption>Raum für die Disskussionen in Kleingruppen (1. OG).</figcaption>
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/photo4.jpg" alt="Unisex-Toilette im Keller.">
-      <figcaption>Unisex-Toilette im Keller.</figcaption>
-    </figure>
+  <h3>So sieht es bei uns aus</h3>
+  <div class="gallery-wrapper">
+    <button class="gallery-btn left" onclick="scrollGallery(-300)">❮</button>
+    <div class="photo-gallery" id="gallery">
+      <figure class="photo-card">
+        <img src="assets/photo1.jpg" alt="Die Räumlickeiten von außen" onclick="openLightbox(this)">
+        <figcaption>Die Räumlickeiten von außen.</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="assets/photo2.jpg" alt="Küche im Erdgeschoss mit Übergang zum Essraum." onclick="openLightbox(this)">
+        <figcaption>Küche im Erdgeschoss mit Übergang zum Essraum.</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="assets/photo3.jpg" alt="Essraum im Erdgeschoss" onclick="openLightbox(this)">
+        <figcaption>Essraum im Erdgeschoss</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="assets/photo4.jpg" alt="Raum für die Disskussionen in Kleingruppen (1. OG)." onclick="openLightbox(this)">
+        <figcaption>Raum für die Disskussionen in Kleingruppen (1. OG).</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="assets/photo4.jpg" alt="Raum für die Disskussionen in Kleingruppen (1. OG)." onclick="openLightbox(this)">
+        <figcaption>Raum für die Disskussionen in Kleingruppen (1. OG).</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="assets/photo4.jpg" alt="Unisex-Toilette im Keller." onclick="openLightbox(this)">
+        <figcaption>Unisex-Toilette im Keller.</figcaption>
+      </figure>
+    <button class="gallery-btn right" onclick="scrollGallery(300)">❯</button>
+  </div>
+
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
   </div>
 
   <h2>Weitere Hinweise</h2>
