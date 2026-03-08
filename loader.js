@@ -16,10 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
     loadPart("footer", "partials/footer.html")
   ]);
 
-  // Gallery and Lightbox
+
+  // Gallery and lightbox
   const gallery = document.getElementById("gallery");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCaption = document.getElementById("lightbox-caption");
 
   let images = [];
   let currentIndex = 0;
@@ -31,12 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Gallery scroll buttons
   window.scrollGallery = function(amount) {
+
     if (!gallery) return;
 
     gallery.scrollBy({
       left: amount,
       behavior: "smooth"
     });
+
   };
 
 
@@ -50,23 +54,30 @@ document.addEventListener("DOMContentLoaded", function () {
     lightbox.style.display = "flex";
     lightboxImg.src = img.src;
 
+    const caption = img.closest("figure")?.querySelector("figcaption");
+    if (caption && lightboxCaption) {
+      lightboxCaption.textContent = caption.textContent;
+    }
+
     document.body.style.overflow = "hidden";
+
   };
 
 
   // close lightbox
   window.closeLightbox = function() {
 
-    if (!lightbox || !lightboxImg) return;
+    if (!lightbox) return;
 
     lightbox.style.display = "none";
     lightboxImg.src = "";
 
     document.body.style.overflow = "";
+
   };
 
 
-  // image swipe
+  // change images
   function showImage(index) {
 
     if (!images.length) return;
@@ -75,11 +86,20 @@ document.addEventListener("DOMContentLoaded", function () {
     if (index >= images.length) index = 0;
 
     currentIndex = index;
-    lightboxImg.src = images[currentIndex].src;
+
+    const img = images[currentIndex];
+
+    lightboxImg.src = img.src;
+
+    const caption = img.closest("figure")?.querySelector("figcaption");
+    if (caption && lightboxCaption) {
+      lightboxCaption.textContent = caption.textContent;
+    }
+
   }
 
 
-  // Desktop key control
+  // Desktop key controls
   document.addEventListener("keydown", function(e) {
 
     if (!lightbox || lightbox.style.display !== "flex") return;
@@ -91,25 +111,30 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  // Lightbox events
+  // lightbox events
   if (lightbox) {
 
     // click to close
     lightbox.addEventListener("click", function(e) {
+
       if (e.target === lightbox) {
         closeLightbox();
       }
+
     });
 
 
-    // Swipe control
+    // swipe controls
     let startX = 0;
     let startY = 0;
 
     lightbox.addEventListener("touchstart", function(e) {
+
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
+
     });
+
 
     lightbox.addEventListener("touchend", function(e) {
 
@@ -119,17 +144,17 @@ document.addEventListener("DOMContentLoaded", function () {
       let diffX = endX - startX;
       let diffY = endY - startY;
 
-      // Swipe right
+      // swipe right
       if (diffX > 80) {
         showImage(currentIndex - 1);
       }
 
-      // Swipe left
+      // swipe left
       else if (diffX < -80) {
         showImage(currentIndex + 1);
       }
 
-      // Swipe down
+      // swipe down
       else if (diffY > 120) {
         closeLightbox();
       }
