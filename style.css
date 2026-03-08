@@ -189,7 +189,9 @@ a:hover {
   border-radius: 10px;
 }
 
-/* gallery wrapper */
+/* ===============================
+   Gallery Wrapper
+   =============================== */
 .gallery-wrapper {
   position: relative;
   display: flex;
@@ -197,7 +199,7 @@ a:hover {
   margin: 2rem 0;
 }
 
-/* scroll gallery */
+/* Scroll Gallery */
 .photo-gallery {
   display: flex;
   gap: 1rem;
@@ -208,19 +210,16 @@ a:hover {
   background: #f3efe8;
   border-radius: 10px;
   border: 1px solid #e6e0d6;
+
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;      /* Firefox */
 }
 
-/* scrollbar verstecken */
 .photo-gallery::-webkit-scrollbar {
-  display: none;
+  display: none;              /* Chrome/Safari */
 }
 
-.photo-gallery {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* photo cards */
+/* Photo Cards */
 .photo-card {
   min-width: 220px;
   flex: 0 0 auto;
@@ -249,7 +248,7 @@ a:hover {
   color: #555;
 }
 
-/* scroll buttons */
+/* Scroll Buttons */
 .gallery-btn {
   position: absolute;
   background: #faf7f2;
@@ -270,6 +269,9 @@ a:hover {
   right: -10px;
 }
 
+/* ===============================
+   Lightbox
+   =============================== */
 #lightbox {
   position: fixed;
   top: 0;
@@ -284,17 +286,21 @@ a:hover {
   background: rgba(0,0,0,0.9);
   z-index: 2000;
 
-  padding: 2rem;
+  padding: 1rem;
 }
 
+/* Lightbox Content */
 .lightbox-content {
   display: flex;
+  flex-direction: column;   /* Bild + Caption + Hinweis untereinander */
   justify-content: center;
   align-items: center;
   max-width: 95vw;
   max-height: 90vh;
+  text-align: center;
 }
 
+/* Lightbox Image */
 #lightbox-img {
   max-width: 95vw;
   max-height: 85vh;
@@ -302,8 +308,18 @@ a:hover {
   border-radius: 8px;
 }
 
+/* Lightbox Caption */
+#lightbox-caption {
+  color: #eee;
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  max-width: 600px;
+}
+
+/* Lightbox Close Button */
 .lightbox-close {
-  position: fixed;
+  position: absolute;  /* bleibt über der Lightbox */
   top: 20px;
   right: 25px;
 
@@ -312,12 +328,20 @@ a:hover {
   border: none;
   color: white;
   cursor: pointer;
+  z-index: 10;
 }
 
+/* Lightbox Hint (unterhalb Caption) */
 .lightbox-hint {
   color: #ddd;
   font-size: 0.85rem;
-  margin-top: 10px;
+  margin-top: 0.5rem;
   text-align: center;
 }
 
+/* Hinweis auf Mobile ausblenden */
+@media (max-width: 700px) {
+  .lightbox-hint {
+    display: none;
+  }
+}
