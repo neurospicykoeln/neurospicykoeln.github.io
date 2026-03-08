@@ -1,81 +1,97 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // Header und Footer auf jedem Tab laden
+  // Header and Footer
   function loadPart(id, file) {
     fetch(file)
       .then(response => response.text())
       .then(html => {
-        document.getElementById(id).innerHTML = html;
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
       })
       .catch(error => console.error("Error loading", file, error));
-  }
+  } 
 
-  // Load header and footer
-  loadPart("header", "partials/header.html");
-  loadPart("footer", "partials/footer.html");
+  // load in parallel
+  Promise.all([
+    loadPart("header", "partials/header.html"),
+    loadPart("footer", "partials/footer.html")
+  ]);
 
-  // Lightbox
+  // Photo gallery and lightbox
   const gallery = document.getElementById("gallery");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
-  
+
   // Scroll Buttons
-  function scrollGallery(amount) {
+  window.scrollGallery = function(amount) {
+    if (!gallery) return;
+
     gallery.scrollBy({
       left: amount,
       behavior: "smooth"
     });
-  }
-  
-  // Lightbox öffnen
-  function openLightbox(img) {
+  };
+
+  // open lightbox
+  window.openLightbox = function(img) {
+    if (!lightbox || !lightboxImg) return;
+
     lightbox.style.display = "flex";
     lightboxImg.src = img.src;
-  
-  // Hintergrundscroll deaktivieren (wichtig für Handy)
+
     document.body.style.overflow = "hidden";
-  }
-  
-  // Lightboy schließen
-  function closeLightbox() {
+  };
+
+  // close lightbox
+  window.closeLightbox = function() {
+    if (!lightbox || !lightboxImg) return;
+
     lightbox.style.display = "none";
     lightboxImg.src = "";
-  
-  // Scroll wieder aktivieren
+
     document.body.style.overflow = "";
-  }
-  
-  // ESC zum Schließen
+  };
+
+
+  // ESC to close
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
-      closeLightbox();
+      window.closeLightbox();
     }
   });
-  
-  // Lightbox per Klick außerhalb schließen
-  lightbox.addEventListener("click", function (e) {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-  
-  // Lightbox per swipe nach unten schließen (Handy)
-  let touchStartY = 0;
-  let touchEndY = 0;
-  
-  lightbox.addEventListener("touchstart", function (e) {
-    touchStartY = e.touches[0].clientY;
-  });
-  
-  lightbox.addEventListener("touchmove", function (e) {
-    touchEndY = e.touches[0].clientY;
-  });
-  
-  lightbox.addEventListener("touchend", function () {
-    if (touchEndY - touchStartY > 120) {
-      closeLightbox();
-    }
-  
-    touchStartY = 0;
-    touchEndY = 0;
-  });
+
+
+  // only activate when lightbox exists
+  if (lightbox) {
+
+    // click to close
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) {
+        window.closeLightbox();
+      }
+    });
+
+    // Swipe to close
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    lightbox.addEventListener("touchstart", function (e) {
+      touchStartY = e.touches[0].clientY;
+    });
+
+    lightbox.addEventListener("touchmove", function (e) {
+      touchEndY = e.touches[0].clientY;
+    });
+
+    lightbox.addEventListener("touchend", function () {
+      if (touchEndY - touchStartY > 120) {
+        window.closeLightbox();
+      }
+
+      touchStartY = 0;
+      touchEndY = 0;
+    });
+
+  }
+
+});
