@@ -321,8 +321,3 @@ a:hover {
   text-align: center;
 }
 
-@media (max-width: 700px) {
-  .lightbox-hint {
-    display: none;
-  }
-}
