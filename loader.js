@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  // Header und Footer auf jedem Tab laden
   function loadPart(id, file) {
     fetch(file)
       .then(response => response.text())
@@ -13,35 +14,68 @@ document.addEventListener("DOMContentLoaded", function () {
   loadPart("header", "partials/header.html");
   loadPart("footer", "partials/footer.html");
 
-  window.scrollGallery = function(amount) {
-    document.getElementById("gallery").scrollBy({
+  // Lightbox
+  const gallery = document.getElementById("gallery");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  
+  // Scroll Buttons
+  function scrollGallery(amount) {
+    gallery.scrollBy({
       left: amount,
       behavior: "smooth"
     });
-  };
-
-  window.openLightbox = function(img) {
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-
+  }
+  
+  // Lightbox öffnen
+  function openLightbox(img) {
     lightbox.style.display = "flex";
     lightboxImg.src = img.src;
-  };
-
-  document.getElementById("lightbox").addEventListener("click", function(e) {
-    if (e.target === this) {
-      closeLightbox();
-    }
-  });
-
-  window.closeLightbox = function() {
-    document.getElementById("lightbox").style.display = "none";
-  };
-
-  document.addEventListener("keydown", function(e){
+  
+  // Hintergrundscroll deaktivieren (wichtig für Handy)
+    document.body.style.overflow = "hidden";
+  }
+  
+  // Lightboy schließen
+  function closeLightbox() {
+    lightbox.style.display = "none";
+    lightboxImg.src = "";
+  
+  // Scroll wieder aktivieren
+    document.body.style.overflow = "";
+  }
+  
+  // ESC zum Schließen
+  document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
       closeLightbox();
     }
   });
-
-});
+  
+  // Lightbox per Klick außerhalb schließen
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+  
+  // Lightbox per swipe nach unten schließen (Handy)
+  let touchStartY = 0;
+  let touchEndY = 0;
+  
+  lightbox.addEventListener("touchstart", function (e) {
+    touchStartY = e.touches[0].clientY;
+  });
+  
+  lightbox.addEventListener("touchmove", function (e) {
+    touchEndY = e.touches[0].clientY;
+  });
+  
+  lightbox.addEventListener("touchend", function () {
+    if (touchEndY - touchStartY > 120) {
+      closeLightbox();
+    }
+  
+    touchStartY = 0;
+    touchEndY = 0;
+  });
