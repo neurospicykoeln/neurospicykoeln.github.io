@@ -98,6 +98,7 @@ body > *:not(.site-header) {
     text-decoration: underline;
 }
 
+/* Mobile Navbar Toggle Button */
 .nav-toggle {
     display: none;
     position: absolute;
@@ -130,9 +131,8 @@ body > *:not(.site-header) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile Navbar */
+/* Mobile Navbar Styles */
 @media (max-width: 768px) {
-
     .nav-list {
         display: none;
         flex-direction: column;
