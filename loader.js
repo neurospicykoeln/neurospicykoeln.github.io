@@ -14,8 +14,31 @@ document.addEventListener("DOMContentLoaded", function () {
   Promise.all([
     loadPart("header", "partials/header.html"),
     loadPart("footer", "partials/footer.html")
-  ]);
+  ]).then(() => {
+    // Mobile Navbar Toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const navMenu = document.querySelector("nav");
 
+    if (navToggle && navMenu) {
+      navToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+
+      // close menu when link is clicked
+      navMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+        });
+      });
+
+      // close menu when outside click
+      document.addEventListener("click", (e) => {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+          navMenu.classList.remove("active");
+        }
+      });
+    }
+  });
 
   // Gallery and lightbox
   const gallery = document.getElementById("gallery");
