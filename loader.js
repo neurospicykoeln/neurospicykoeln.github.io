@@ -15,26 +15,31 @@ document.addEventListener("DOMContentLoaded", function () {
     loadPart("header", "partials/header.html"),
     loadPart("footer", "partials/footer.html")
   ]).then(() => {
-    // Mobile Navbar Toggle
+    // Mobile nav bar toggle
     const navToggle = document.querySelector(".nav-toggle");
-    const navMenu = document.querySelector("nav");
+    const nav = document.querySelector("nav");
 
-    if (navToggle && navMenu) {
+    if (navToggle && nav) {
+
+      // Klick
       navToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
+        nav.classList.toggle("active");
+        navToggle.classList.toggle("active");
       });
 
-      // close menu when link is clicked
-      navMenu.querySelectorAll("a").forEach(link => {
+      // Menü schließen bei Klick auf Link
+      nav.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => {
-          navMenu.classList.remove("active");
+          nav.classList.remove("active");
+          navToggle.classList.remove("active");
         });
       });
 
-      // close menu when outside click
+      // Menü schließen bei Klick außerhalb
       document.addEventListener("click", (e) => {
-        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-          navMenu.classList.remove("active");
+        if (!nav.contains(e.target) && !navToggle.contains(e.target)) {
+          nav.classList.remove("active");
+          navToggle.classList.remove("active");
         }
       });
     }
