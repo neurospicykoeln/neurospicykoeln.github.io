@@ -514,3 +514,13 @@ a:hover {
   border-color: #c8bda6;
   box-shadow: 0 0 0 2px rgba(200, 189, 166, 0.3);
 }
+
+.meta {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.meta div {
+  margin-bottom: 0.2rem;
+}
