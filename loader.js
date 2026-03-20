@@ -216,10 +216,10 @@ document.addEventListener("DOMContentLoaded", function () {
         card.insertBefore(metaDiv, card.querySelector("a"));
       }
   
-      metaDiv.innerHTML = `
-        ${category ? `<span class="tag">${category}</span>` : ""}
-        ${author ? `<span class="tag">${author}</span>` : ""}
-      `;
+    metaDiv.innerHTML = `
+      ${author ? `<div><strong>Autor:</strong> ${author}</div>` : ""}
+      ${category ? `<div><strong>Kategorie:</strong> ${category}</div>` : ""}
+    `;
     });
   
     // --- Sorting ---
