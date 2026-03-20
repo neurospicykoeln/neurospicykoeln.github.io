@@ -479,4 +479,37 @@ a:hover {
   background-color: var(--bg-soft);
   border-radius: 6px;
   border: 1px solid var(--border-soft);
+
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.sort-container label {
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+/* Select Styling */
+.sort-container select {
+  background-color: #faf7f0;
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+
+  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+
+  cursor: pointer;
+}
+
+.sort-container select:hover {
+  background-color: var(--bg-highlight);
+}
+
+.sort-container select:focus {
+  outline: none;
+  border-color: #c8bda6;
+  box-shadow: 0 0 0 2px rgba(200, 189, 166, 0.3);
 }
