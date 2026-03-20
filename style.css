@@ -440,3 +440,10 @@ a:hover {
     display: none;
   }
 }
+
+.impressum-logo {
+  max-width: 400px;
+  width: 100%;
+  display: block;
+  margin: 1rem 0 1rem 1rem; /* gleiche Einrückung wie p */
+}
