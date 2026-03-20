@@ -99,13 +99,13 @@ body > *:not(.site-header) {
 }
 /* Mobile Navbar Toggle Button - angepasst */
 .nav-toggle {
-    display: flex;
+    display: none; /* Standard: versteckt */
     position: absolute;
-    bottom: 0.5rem;       /* Abstand vom unteren Rand des Headers */
-    left: 50%;            /* Zentrieren horizontal */
-    transform: translateX(-50%);  /* Genaues Zentrieren */
-    width: 40px;          /* größerer Button */
-    height: 28px;         /* größerer Button */
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 28px;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
@@ -132,12 +132,23 @@ body > *:not(.site-header) {
 }
 
 /* Mobile Navbar Styles */
+
+@media (min-width: 769px) {
+    .nav-list {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        max-height: none;
+        padding: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-list {
         display: none;
         flex-direction: column;
         gap: 0;
-        background-color: #faf7f0;
+        background-color: var(--bg-highlight);
         position: absolute;
         top: 100%;
         right: 0;
@@ -164,6 +175,10 @@ body > *:not(.site-header) {
         display: block;
         padding: 0.6rem 1rem;
         font-size: 1rem;
+        color: var(--text-main);
+    }
+    .nav-list a:hover {
+        background-color: var(--bg-soft);
     }
 
     .nav-toggle {
