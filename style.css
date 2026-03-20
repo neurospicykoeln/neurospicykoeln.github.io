@@ -171,6 +171,16 @@ body > *:not(.site-header) {
     }
 }
 
+nav a svg {
+  vertical-align: middle;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 /* Headings */
 h1 {
     margin-top: 2rem;
