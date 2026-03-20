@@ -190,5 +190,58 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   }
+  // Container (only runs if it exists)
+  const container = document.getElementById("book-container");
+  
+  if (container) {
+  
+    const sortSelect = document.getElementById("sort");
+  
+    // Save original order
+    const originalOrder = Array.from(container.children);
+  
+    // --- Display metadata in cards ---
+    const cards = container.querySelectorAll(".card");
+  
+    cards.forEach(card => {
+      const category = card.dataset.category;
+      const author = card.dataset.author;
+  
+      let metaDiv = card.querySelector(".meta");
+  
+      // create meta container if not present
+      if (!metaDiv) {
+        metaDiv = document.createElement("div");
+        metaDiv.classList.add("meta");
+        card.insertBefore(metaDiv, card.querySelector("a"));
+      }
+  
+      metaDiv.innerHTML = `
+        ${category ? `<span class="tag">${category}</span>` : ""}
+        ${author ? `<span class="tag">${author}</span>` : ""}
+      `;
+    });
+  
+    // --- Sorting ---
+    if (sortSelect) {
+      sortSelect.addEventListener("change", function () {
+  
+        let cardsArray = Array.from(container.getElementsByClassName("card"));
+  
+        if (this.value === "default") {
+          originalOrder.forEach(card => container.appendChild(card));
+          return;
+        }
+  
+        cardsArray.sort((a, b) => {
+          const valA = (a.dataset[this.value] || "").toLowerCase();
+          const valB = (b.dataset[this.value] || "").toLowerCase();
+          return valA.localeCompare(valB);
+        });
+  
+        cardsArray.forEach(card => container.appendChild(card));
+      });
+    }
+  }
 
 });
