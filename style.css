@@ -475,10 +475,11 @@ a:hover {
 
 .sort-container {
   margin: 1.2rem 0;
-  padding: 1rem;
+  padding: 0.8rem 1rem;
+
   background-color: var(--bg-soft);
-  border-radius: 6px;
   border: 1px solid var(--border-soft);
+  border-radius: 6px;
 
   display: flex;
   align-items: center;
