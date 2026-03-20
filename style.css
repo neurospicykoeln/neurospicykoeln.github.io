@@ -468,7 +468,7 @@ a:hover {
 
 .impressum-logo {
   max-width: 300px;
-  width: 100%;
+  width: 90%;
   display: block;
-  margin: 1rem 0 1rem 1rem; /* gleiche Einrückung wie p */
+  margin: 1rem 0 1rem 1rem;
 }
