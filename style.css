@@ -468,13 +468,15 @@ a:hover {
 
 .impressum-logo {
   width: clamp(20px, 8vw, 40px);
+  display: block; 
+  margin: 1rem 0 1rem 1rem;
   height: auto;
 }
 
 .map-image {
   display: block;
-  margin: 1rem auto;
-  width: clamp(20px, 8vw, 40px);
+  margin: 1rem 0 1rem 1rem;
+  width: clamp(40px, 8vw, 60px);
   height: auto;
 }
 
