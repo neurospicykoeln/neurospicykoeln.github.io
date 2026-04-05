@@ -532,3 +532,60 @@ a:hover {
 .meta div {
   margin-bottom: 0.2rem;
 }
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Icon styling */
+.header-icon {
+    display: flex;
+    align-items: center;
+}
+
+/* Center container takes remaining space */
+.header-center {
+    flex: 1;
+    text-align: center;
+}
+
+/* Spacing between icons and center content */
+.header-icon.left {
+    margin-right: 0.5rem;
+}
+
+.header-icon.right {
+    margin-left: 0.5rem;
+}
+
+/* Hide icons on mobile */
+@media (max-width: 768px) {
+    .header-icon {
+        display: none;
+    }
+
+    .site-header {
+        justify-content: center;  /* center everything horizontally */
+        padding: 0.5rem 1rem;
+    }
+
+    .header-center {
+        text-align: center;
+        flex: none;              /* remove flex growth */
+        display: flex;
+        flex-direction: column;  /* stack branding + nav toggle */
+        align-items: center;
+    }
+
+    .nav-toggle {
+        margin-top: 0.5rem;     /* small spacing under title */
+        position: static;        /* centered inside flex column */
+        transform: none;         /* reset previous translation */
+    }
+}
