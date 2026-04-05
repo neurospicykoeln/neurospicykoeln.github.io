@@ -545,14 +545,6 @@ a:hover {
     text-align: center;
 }
 
-.header-icon.left {
-    margin-right: 0.5rem;
-}
-
-.header-icon.right {
-    margin-left: 0.5rem;
-}
-
 .header-icon svg {
     width: clamp(16px, 1.5vw, 24px)
     height: auto;
