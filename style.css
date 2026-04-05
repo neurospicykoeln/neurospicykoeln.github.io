@@ -554,7 +554,7 @@ a:hover {
 }
 
 .header-icon svg {
-    width: clamp(24px, 2vw, 40px);
+    width: clamp(16px, 1.5vw, 24px)
     height: auto;
     display: block;
 }
