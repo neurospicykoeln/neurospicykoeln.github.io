@@ -97,9 +97,9 @@ body > *:not(.site-header) {
 .nav-list a:hover {
     text-decoration: underline;
 }
-/* Mobile Navbar Toggle Button - angepasst */
+/* Mobile Navbar Toggle Button */
 .nav-toggle {
-    display: none; /* Standard: versteckt */
+    display: none;
     position: absolute;
     bottom: 0.5rem;
     left: 50%;
@@ -114,7 +114,7 @@ body > *:not(.site-header) {
 
 .nav-toggle span {
     display: block;
-    height: 4px;          /* dickere Striche */
+    height: 4px;
     width: 100%;
     background-color: #333;
     border-radius: 2px;
@@ -131,8 +131,7 @@ body > *:not(.site-header) {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Mobile Navbar Styles */
-
+/* Mobile Navbar */
 @media (min-width: 769px) {
     .nav-list {
         display: flex !important;
@@ -309,9 +308,6 @@ a:hover {
   border-radius: 10px;
 }
 
-/* ===============================
-   Gallery Wrapper
-   =============================== */
 .gallery-wrapper {
   position: relative;
   display: flex;
@@ -331,12 +327,12 @@ a:hover {
   border-radius: 10px;
   border: 1px solid #e6e0d6;
 
-  -ms-overflow-style: none;  /* IE/Edge */
-  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .photo-gallery::-webkit-scrollbar {
-  display: none;              /* Chrome/Safari */
+  display: none;
 }
 
 /* Photo Cards */
@@ -389,9 +385,6 @@ a:hover {
   right: -10px;
 }
 
-/* ===============================
-   Lightbox
-   =============================== */
 #lightbox {
   position: fixed;
   top: 0;
@@ -412,7 +405,7 @@ a:hover {
 /* Lightbox Content */
 .lightbox-content {
   display: flex;
-  flex-direction: column;   /* Bild + Caption + Hinweis untereinander */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 95vw;
