@@ -467,7 +467,7 @@ a:hover {
 }
 
 .impressum-logo {
-  width: clamp(150px, 40vw, 300px);
+  width: clamp(200px, 50vw, 500px);
   height: auto;
   display: block;
   margin: 1rem 0;
