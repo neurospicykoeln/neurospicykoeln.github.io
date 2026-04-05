@@ -439,7 +439,7 @@ a:hover {
 
 /* Lightbox Close Button */
 .lightbox-close {
-  position: absolute;  /* bleibt über der Lightbox */
+  position: absolute;
   top: 20px;
   right: 25px;
 
@@ -500,7 +500,6 @@ a:hover {
   color: var(--text-main);
 }
 
-/* Select Styling */
 .sort-container select {
   background-color: #faf7f0;
   border: 1px solid var(--border-soft);
@@ -543,19 +542,16 @@ a:hover {
     z-index: 1000;
 }
 
-/* Icon styling */
 .header-icon {
     display: flex;
     align-items: center;
 }
 
-/* Center container takes remaining space */
 .header-center {
     flex: 1;
     text-align: center;
 }
 
-/* Spacing between icons and center content */
 .header-icon.left {
     margin-right: 0.5rem;
 }
@@ -564,28 +560,33 @@ a:hover {
     margin-left: 0.5rem;
 }
 
-/* Hide icons on mobile */
+.header-icon svg {
+    width: clamp(24px, 2vw, 40px);
+    height: auto;
+    display: block;
+}
+
 @media (max-width: 768px) {
     .header-icon {
         display: none;
     }
 
     .site-header {
-        justify-content: center;  /* center everything horizontally */
+        justify-content: center;
         padding: 0.5rem 1rem;
     }
 
     .header-center {
         text-align: center;
-        flex: none;              /* remove flex growth */
+        flex: none;
         display: flex;
-        flex-direction: column;  /* stack branding + nav toggle */
+        flex-direction: column;
         align-items: center;
     }
 
     .nav-toggle {
-        margin-top: 0.5rem;     /* small spacing under title */
-        position: static;        /* centered inside flex column */
-        transform: none;         /* reset previous translation */
+        margin-top: 0.5rem;
+        position: static;
+        transform: none;
     }
 }
