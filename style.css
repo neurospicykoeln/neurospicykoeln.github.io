@@ -467,17 +467,17 @@ a:hover {
 }
 
 .impressum-logo {
-  width: clamp(20px, 8vw, 40px);
-  display: block; 
-  margin: 1rem 0 1rem 1rem;
+  width: clamp(60px, 12vw, 140px);
   height: auto;
+  display: block;
+  margin: 1rem 0 1rem 1rem;
 }
 
 .map-image {
-  display: block;
-  margin: 1rem 0 1rem 1rem;
-  width: clamp(40px, 8vw, 60px);
+  width: clamp(280px, 80vw, 700px);
   height: auto;
+  display: block;
+  margin: 1.5rem auto;
 }
 
 .sort-container {
