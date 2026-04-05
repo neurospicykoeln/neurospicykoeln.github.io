@@ -551,14 +551,12 @@ a:hover {
     display: block;
 }
 
-@media (max-width: 768px) {
-    .header-icon {
-        display: none;
-    }
 
+@media (max-width: 768px) {
     .site-header {
         justify-content: center;
         padding: 0.5rem 1rem;
+        flex-wrap: wrap;
     }
 
     .header-center {
@@ -567,6 +565,17 @@ a:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+
+    .site-title a {
+        font-size: 1.5rem;
+    }
+
+    .site-claim {
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
     }
 
     .nav-toggle {
